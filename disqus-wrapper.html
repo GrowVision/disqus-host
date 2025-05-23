@@ -1,11 +1,34 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"></head><body>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Disqus wrapper</title>
+</head>
+<body>
+
 <div id="disqus_thread"></div>
+
 <script>
-  (function() {
+  /* ▼行ごとにスレッドを分けたいとき（省略可）
+  var disqus_config = function () {
+    const params = new URLSearchParams(location.search);
+    this.page.identifier = params.get('id') || location.href;
+    this.page.url        = location.href;
+  };
+  */
+
+  (function () {          // ← ここから下は触らない
     var d = document, s = d.createElement('script');
-    s.src = 'https://evcharge-guide.disqus.com/embed.js';
+    s.src = 'https://evcharge-guide.disqus.com/embed.js';   <!-- ← shortname 部分 -->
     s.setAttribute('data-timestamp', +new Date());
-    (d.head||d.body).appendChild(s);
+    (d.head || d.body).appendChild(s);
   })();
 </script>
-</body></html>
+
+<noscript>
+  Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+</body>
+</html>
